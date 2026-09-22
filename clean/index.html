@@ -164,28 +164,37 @@
     </a>
   </div>
   <div class="live-section">
-    <div class="live-title">🔴 正在直播的客户参考 <span>点一下复制链接</span></div>
+    <div class="live-title">🔴 正在直播的客户参考</div>
     <div class="live-list">
-      <button class="live-item" onclick="copyLink('97🗝I2mUTPKPwBH🗝','FOOTINDUSTRY旗舰店')">
+      <div class="live-item">
+        <div class="store-name">肯迪文官方旗舰店</div>
+        <div style="display:flex;gap:8px;">
+          <button onclick="copyText('49🔐2VGlTPq7K5G🔐','肯迪文官方旗舰店')" style="background:#E2763C;color:#fff;border:none;padding:6px 12px;border-radius:14px;font-size:12px;">复制口令</button>
+          <button onclick="copyText('肯迪文官方旗舰店','店名')" style="background:#f5f5f5;color:#333;border:none;padding:6px 12px;border-radius:14px;font-size:12px;">复制店名</button>
+        </div>
+      </div>
+      <div class="live-item">
         <div class="store-name">FOOTINDUSTRY旗舰店</div>
-        <div class="store-tag">点复制</div>
-      </button>
-      <button class="live-item" onclick="copyLink('87🗝GU7xTPKlWm7💲','JIMMY CHOO官方旗舰店')">
+        <div style="display:flex;gap:8px;">
+          <button onclick="copyText('39₴vP7qTPqGR3d✔','FOOTINDUSTRY旗舰店')" style="background:#E2763C;color:#fff;border:none;padding:6px 12px;border-radius:14px;font-size:12px;">复制口令</button>
+          <button onclick="copyText('FOOTINDUSTRY旗舰店','店名')" style="background:#f5f5f5;color:#333;border:none;padding:6px 12px;border-radius:14px;font-size:12px;">复制店名</button>
+        </div>
+      </div>
+      <div class="live-item">
         <div class="store-name">JIMMY CHOO官方旗舰店</div>
-        <div class="store-tag">点复制</div>
-      </button>
-      <button class="live-item" onclick="copyLink('29《9VkHTPKm7Oz《','MF168 肯迪文官方旗舰店')">
-        <div class="store-name">MF168 肯迪文官方旗舰店</div>
-        <div class="store-tag">点复制</div>
-      </button>
+        <div style="display:flex;gap:8px;">
+          <button onclick="copyText('27₤WyNzTPqF3M2₤','JIMMY CHOO官方旗舰店')" style="background:#E2763C;color:#fff;border:none;padding:6px 12px;border-radius:14px;font-size:12px;">复制口令</button>
+          <button onclick="copyText('JIMMY CHOO官方旗舰店','店名')" style="background:#f5f5f5;color:#333;border:none;padding:6px 12px;border-radius:14px;font-size:12px;">复制店名</button>
+        </div>
+      </div>
     </div>
-    <p style="font-size:12px;color:#999;text-align:center;margin-top:10px;">点一下自动复制链接，再打开淘宝APP即可看直播</p>
+    <p style="font-size:12px;color:#999;text-align:center;margin-top:10px;">复制口令后打开淘宝自动弹出直播间；或复制店名后在淘宝搜索观看</p>
   </div>
   <div class="footer">点击行业卡片，查看真实直播回放</div>
 <script>
-function copyLink(url,name){
+function copyText(text,label){
   var ta=document.createElement("textarea");
-  ta.value=url;
+  ta.value=text;
   ta.style.position="fixed";
   ta.style.opacity="0";
   document.body.appendChild(ta);
@@ -195,10 +204,10 @@ function copyLink(url,name){
   var ov=document.createElement("div");
   ov.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;";
   ov.innerHTML='<div style="background:#fff;border-radius:16px;padding:28px 24px;text-align:center;max-width:300px;">'
-    +'<div style="font-size:20px;font-weight:700;margin-bottom:8px;">✅ 淘口令已复制</div>'
-    +'<div style="font-size:14px;color:#666;margin-bottom:20px;">'+name+'</div>'
-    +'<a href="taobao://" style="display:block;background:#E2763C;color:#fff;padding:12px;border-radius:24px;text-decoration:none;font-size:15px;font-weight:600;">打开淘宝看直播</a>'
-    +'<div style="font-size:12px;color:#999;margin-top:12px;">如果没反应，手动切到淘宝APP</div>'
+    +'<div style="font-size:20px;font-weight:700;margin-bottom:8px;">✅ 已复制</div>'
+    +'<div style="font-size:14px;color:#666;margin-bottom:20px;">'+label+'</div>'
+    +'<a href="taobao://" style="display:block;background:#E2763C;color:#fff;padding:12px;border-radius:24px;text-decoration:none;font-size:15px;font-weight:600;">打开淘宝</a>'
+    +'<div style="font-size:12px;color:#999;margin-top:12px;">如果没反应，手动切到淘宝APP粘贴打开</div>'
     +'</div>';
   ov.onclick=function(){ov.remove();};
   document.body.appendChild(ov);
