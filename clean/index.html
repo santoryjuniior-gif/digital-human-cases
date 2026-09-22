@@ -76,6 +76,47 @@
     color: #aaa;
     font-size: 12px;
   }
+  .live-section {
+    padding: 20px 16px;
+  }
+  .live-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 14px;
+    padding-left: 4px;
+  }
+  .live-title span {
+    color: #E2763C;
+  }
+  .live-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .live-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .live-item:active { transform: scale(0.98); }
+  .live-item .store-name {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .live-item .store-tag {
+    font-size: 11px;
+    color: #E2763C;
+    background: #fff5ee;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
 </style>
 </head>
 <body>
@@ -121,6 +162,23 @@
       <div class="desc">鞋服品牌数字人直播</div>
       <div class="arrow">查看案例 →</div>
     </a>
+  </div>
+  <div class="live-section">
+    <div class="live-title">🔴 正在直播的客户参考 <span>点击进入</span></div>
+    <div class="live-list">
+      <a class="live-item" href="https://m.tb.cn/h.8FrbNVnvEL3hz0R" target="_blank">
+        <div class="store-name">FOOTINDUSTRY旗舰店</div>
+        <div class="store-tag">去淘宝看直播</div>
+      </a>
+      <a class="live-item" href="https://m.tb.cn/h.8ujae2SYe9JsVEH" target="_blank">
+        <div class="store-name">JIMMY CHOO官方旗舰店</div>
+        <div class="store-tag">去淘宝看直播</div>
+      </a>
+      <a class="live-item" href="https://m.tb.cn/h.8ujZoTYSiOF3eSH" target="_blank">
+        <div class="store-name">MF168 肯迪文官方旗舰店</div>
+        <div class="store-tag">去淘宝看直播</div>
+      </a>
+    </div>
   </div>
   <div class="footer">点击行业卡片，查看真实直播回放</div>
 </body>
