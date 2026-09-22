@@ -339,5 +339,48 @@
 
 
 </script>
+
+<!-- anti-scrape & anti-copy protection -->
+<style>
+  * { -webkit-user-select: none !important; -moz-user-select: none !important; -ms-user-select: none !important; user-select: none !important; }
+  img { -webkit-user-drag: none !important; user-drag: none !important; pointer-events: auto; }
+  .watermark {
+    position: fixed; bottom: 12px; right: 16px; z-index: 9999;
+    font-size: 11px; color: rgba(255,255,255,0.35);
+    background: rgba(0,0,0,0.25); padding: 3px 10px; border-radius: 10px;
+    pointer-events: none; letter-spacing: 0.5px;
+  }
+</style>
+<div class="watermark">kai · 一知智能</div>
+<script>
+(function(){
+  // 禁用右键菜单
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  // 禁用图片/视频拖拽
+  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+  // 禁用快捷键 (F12, Ctrl+Shift+I/J/C, Ctrl+U 查看源码)
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'F12'){ e.preventDefault(); }
+    if(e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())){ e.preventDefault(); }
+    if(e.ctrlKey && e.key.toUpperCase() === 'U'){ e.preventDefault(); }
+  });
+  // 检测开发者工具打开：通过window尺寸差值
+  var devtoolsOpen = false;
+  setInterval(function(){
+    var threshold = 160;
+    if (window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold) {
+      if (!devtoolsOpen) {
+        devtoolsOpen = true;
+        // 不跳转，只弹一次提示，不影响正常使用
+        console.log('%c⚠️ 本页面内容受保护，请勿复制或抓取', 'color:#e74c3c;font-size:14px;font-weight:bold;');
+      }
+    } else {
+      devtoolsOpen = false;
+    }
+  }, 1500);
+})();
+</script>
+
 </body>
 </html>
