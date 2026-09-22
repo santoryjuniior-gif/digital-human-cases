@@ -192,7 +192,16 @@ function copyLink(url,name){
   ta.select();
   try{document.execCommand("copy");}catch(e){}
   document.body.removeChild(ta);
-  alert("已复制 "+name+" 链接\\n打开淘宝APP即可自动跳转看直播");
+  var ov=document.createElement("div");
+  ov.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;";
+  ov.innerHTML='<div style="background:#fff;border-radius:16px;padding:28px 24px;text-align:center;max-width:300px;">'
+    +'<div style="font-size:20px;font-weight:700;margin-bottom:8px;">✅ 淘口令已复制</div>'
+    +'<div style="font-size:14px;color:#666;margin-bottom:20px;">'+name+'</div>'
+    +'<a href="taobao://" style="display:block;background:#E2763C;color:#fff;padding:12px;border-radius:24px;text-decoration:none;font-size:15px;font-weight:600;">打开淘宝看直播</a>'
+    +'<div style="font-size:12px;color:#999;margin-top:12px;">如果没反应，手动切到淘宝APP</div>'
+    +'</div>';
+  ov.onclick=function(){ov.remove();};
+  document.body.appendChild(ov);
 }
 </script>
 </body>
