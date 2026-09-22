@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>日化直播案例 · 扫码观看</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap">
+<style>
+  :root {
+    --paper: #F6F1E9;
+    --ink: #241C15;
+    --muted: #8A7F70;
+    --line: #E6DCCE;
+    --card: #FFFFFF;
+    --accent: #3E8FA0;
+    --accent2: #28646E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 0 16px 48px; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">AI 日化直播案例</span>
+    <h1>直播案例精选</h1>
+    <p class="sub">超能官方旗舰店直播间实录，点击播放即可观看。</p>
+  </header>
+
+  <section class="case is-first">
+    <div class="stage">
+      <video class="is-first" controls playsinline preload="metadata" poster="https://nickchen19941005-dot.github.io/digital-human-cases/home/home1_poster.jpg"
+             src="https://nickchen19941005-dot.github.io/digital-human-cases/home/home1.mp4"></video>
+      <button class="play" type="button" aria-label="播放案例视频">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .81.88 1.31 1.57.89l10.8-6.86a1.05 1.05 0 0 0 0-1.78L9.57 4.25A1.04 1.04 0 0 0 8 5.14Z"/></svg>
+      </button>
+    </div>
+    <div class="info">
+      <div class="info-top">
+        <div class="brand"><span class="dot"></span><h2>超能 · 带货直播</h2></div>
+        <span class="duration">00:30</span>
+      </div>
+      <p class="desc">日化直播带货实录 · 植愈香氛洗衣液爆品讲解。</p>
+      <div class="tags"><span class="tag">日化直播</span><span class="tag">带货讲解</span></div>
+    </div>
+  </section>
+
+  <section class="case is-second">
+    <div class="stage">
+      <video class="is-second" controls playsinline preload="metadata" poster="https://nickchen19941005-dot.github.io/digital-human-cases/home/home2_poster.jpg"
+             src="https://nickchen19941005-dot.github.io/digital-human-cases/home/home2.mp4"></video>
+      <button class="play" type="button" aria-label="播放案例视频">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .81.88 1.31 1.57.89l10.8-6.86a1.05 1.05 0 0 0 0-1.78L9.57 4.25A1.04 1.04 0 0 0 8 5.14Z"/></svg>
+      </button>
+    </div>
+    <div class="info">
+      <div class="info-top">
+        <div class="brand"><span class="dot"></span><h2>超能 · 近景特写</h2></div>
+        <span class="duration">00:37</span>
+      </div>
+      <p class="desc">产品近景特写实录 · 植萃香氛洗衣液旋盖演示。</p>
+      <div class="tags"><span class="tag">日化直播</span><span class="tag">产品演示</span></div>
+    </div>
+  </section>
+
+  <footer>AI 日化直播案例展示 · 建议使用手机全屏观看</footer>
+</div>
+
+<script>
+  (function () {
+    var stages = document.querySelectorAll('.stage');
+    Array.prototype.forEach.call(stages, function (stage) {
+      var video = stage.querySelector('video');
+      var play = stage.querySelector('.play');
+      play.addEventListener('click', function () {
+        var p = video.play();
+        if (p && p.catch) { p.catch(function () {}); }
+      });
+      video.addEventListener('play', function () { play.classList.add('hidden'); });
+      video.addEventListener('pause', function () { play.classList.remove('hidden'); });
+      video.addEventListener('ended', function () { play.classList.remove('hidden'); });
+    });
+  })();
+</script>
+</body>
+</html>
