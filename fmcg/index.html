@@ -364,5 +364,57 @@
 })();
 </script>
 
+
+<!-- visitor tracking -->
+<script>
+(function(){
+  var WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/663a079a-bce6-4f47-8856-0cdf64f02d4c";
+  var INDUSTRY = "快消";
+
+  // get or create visitor ID
+  var vid = localStorage.getItem("kai_vid");
+  if (!vid) {
+    vid = "v" + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+    localStorage.setItem("kai_vid", vid);
+  }
+  // visit count
+  var visitCount = parseInt(localStorage.getItem("kai_visit_" + vid) || "0") + 1;
+  localStorage.setItem("kai_visit_" + vid, String(visitCount));
+
+  // device info
+  var ua = navigator.userAgent;
+  var isWeChat = /MicroMessenger/i.test(ua);
+  var device;
+  if (/iPhone|iPad|iPod/i.test(ua)) device = "iPhone/iPad";
+  else if (/Android/i.test(ua)) device = "Android";
+  else if (/Mobile/i.test(ua)) device = "手机";
+  else device = "电脑";
+
+  // time
+  var now = new Date();
+  var pad = function(n){return n<10?"0"+n:n;};
+  var timeStr = now.getFullYear()+"-"+pad(now.getMonth()+1)+"-"+pad(now.getDate())+" "+pad(now.getHours())+":"+pad(now.getMinutes());
+
+  // message
+  var text = "🔔 新访客打开案例页\n" +
+    "📱 行业：" + INDUSTRY + "\n" +
+    "👤 访客ID：" + vid + "\n" +
+    "📅 时间：" + timeStr + "\n" +
+    "📟 设备：" + device + (isWeChat ? " / 微信内" : "") + "\n" +
+    "🔢 这是第" + visitCount + "次访问";
+
+  // send to feishu (async, non-blocking)
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", WEBHOOK, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify({
+      msg_type: "text",
+      content: { text: text }
+    }));
+  } catch(e) {}
+})();
+</script>
+
 </body>
 </html>
