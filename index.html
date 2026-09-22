@@ -307,7 +307,7 @@
           <label>想通过数字人解决什么问题（选填）</label>
           <textarea id="need" placeholder="如：降低直播成本、24小时不间断直播、多平台同时开播等"></textarea>
         </div>
-        <button type="submit" class="submit-btn">提交，领取免费试播</button>
+        <button type="button" class="submit-btn" onclick="submitLeadForm()">提交，领取免费试播</button>
       </form>
     </div>
   </div>
@@ -325,27 +325,29 @@
   </div>
 
 <script>
-document.getElementById('leadForm').addEventListener('submit', function(e){
-  e.preventDefault();
+function submitLeadForm(){
   var company = document.getElementById('company').value.trim();
   var industry = document.getElementById('industry').value;
   var phone = document.getElementById('phone').value.trim();
   var need = document.getElementById('need').value.trim() || '未填写';
   if(!company || !industry || !phone) { alert('请填写完整必填信息'); return; }
-  // 先弹二维码弹窗
   var ov = document.getElementById('successOverlay');
   ov.style.display = 'flex';
-  // 再推送飞书
-  var text = "📋 新客资提交\n" +
-    "🏢 公司/品牌：" + company + "\n" +
-    "🏭 行业：" + industry + "\n" +
-    "📞 联系方式：" + phone + "\n" +
+  var text = "📋 新客资提交
+" +
+    "🏢 公司/品牌：" + company + "
+" +
+    "🏭 行业：" + industry + "
+" +
+    "📞 联系方式：" + phone + "
+" +
     "💡 需求：" + need;
   fetch("https://open.feishu.cn/open-apis/bot/v2/hook/663a079a-bce6-4f47-8856-0cdf64f02d4c", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({msg_type:"text", content:{text:text}})
   }).catch(function(){});
+}
 });
 </script>
 </body>
