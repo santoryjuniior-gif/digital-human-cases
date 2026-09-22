@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI数字人直播案例</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #0d1117;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  color: #fff;
+}
+.logo {
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #8b949e;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.subtitle {
+  font-size: 15px;
+  color: #8b949e;
+  text-align: center;
+  margin-bottom: 48px;
+}
+.enter-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(26, 115, 232, 0.4);
+  transition: transform 0.2s;
+}
+.enter-btn:active { transform: scale(0.98); }
+.wechat-tip {
+  display: none;
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 16px;
+  background: rgba(255, 193, 7, 0.15);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 10px;
+  font-size: 13px;
+  color: #ffd54f;
+  line-height: 1.6;
+  text-align: center;
+}
+.features {
+  margin-top: 40px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.feature {
+  text-align: center;
+}
+.feature-icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+.feature-text {
+  font-size: 12px;
+  color: #8b949e;
+}
+.footer {
+  margin-top: 48px;
+  font-size: 12px;
+  color: #484f58;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="logo">YIWISE · AI AVATAR LIVE</div>
+<h1>AI数字人直播<br>六大行业案例</h1>
+<p class="subtitle">7×24小时智能直播 · 让品牌增长永不打烊</p>
+
+<a href="https://santoryjuniior-gif.github.io/digital-human-cases/" class="enter-btn" id="enterBtn">
+  点击观看案例
+</a>
+
+<div class="wechat-tip" id="wechatTip">
+  如果点击后打不开，请点击右上角 <strong>···</strong><br>
+  选择「在浏览器中打开」
+</div>
+
+<div class="features">
+  <div class="feature">
+    <div class="feature-icon">🛡️</div>
+    <div class="feature-text">官方认证</div>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">⚡</div>
+    <div class="feature-text">大模型驱动</div>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">📦</div>
+    <div class="feature-text">全链路陪跑</div>
+  </div>
+</div>
+
+<div class="footer">一知智能 · AI互动营销Agent产业引领者</div>
+
+<script>
+// 检测是否在微信内打开
+var isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+if (isWeChat) {
+  document.getElementById('wechatTip').style.display = 'block';
+}
+</script>
+</body>
+</html>
