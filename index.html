@@ -10,68 +10,134 @@
     font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
     background: #f5f0e8;
     min-height: 100vh;
-    padding: 40px 20px 60px;
   }
-  .header { text-align:center; margin-bottom: 30px; }
-  .header h1 { font-size: 28px; color: #3c2d1e; margin-bottom: 8px; }
-  .header p { font-size: 14px; color: #998; }
 
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    max-width: 480px;
-    margin: 0 auto 40px;
-  }
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 24px 16px;
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #2c1810 0%, #5c3a20 50%, #8a5a30 100%);
+    padding: 50px 24px 70px;
     text-align: center;
-    text-decoration: none;
-    color: #333;
-    display: block;
     position: relative;
     overflow: hidden;
   }
-  .card::before {
-    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(226,118,60,0.3) 0%, transparent 70%);
+    top: -100px; right: -100px;
   }
-  .card.pet::before { background: #E2763C; }
-  .card.fmcg::before { background: #E2763C; }
-  .card.beauty::before { background: #E8608A; }
-  .card.baby::before { background: #2FA39C; }
-  .card.home::before { background: #3E8FA0; }
-  .card.fashion::before { background: #9B59B6; }
-  .card .icon { font-size: 36px; margin-bottom: 8px; }
-  .card .name { font-size: 17px; font-weight: 600; }
-  .card .sub { font-size: 12px; color: #999; margin-top: 4px; }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(232,96,138,0.2) 0%, transparent 70%);
+    bottom: -80px; left: -80px;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: #ffd4a8;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+  }
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    position: relative;
+    z-index: 1;
+  }
 
-  /* form section */
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 520px;
+    margin: -40px auto 0;
+    padding: 0 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    text-decoration: none;
+    display: block;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+  .card-emoji { font-size: 28px; margin-bottom: 6px; }
+  .card-name {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .card-arrow {
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+  }
+
+  /* FORM */
   .form-section {
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: 520px;
+    margin: 32px auto;
+    padding: 0 16px;
+  }
+  .form-card {
     background: #fff;
     border-radius: 20px;
-    padding: 30px 24px;
+    padding: 32px 24px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   }
-  .form-section h2 {
+  .form-title {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .form-title h2 {
     font-size: 20px;
     color: #3c2d1e;
-    text-align: center;
     margin-bottom: 6px;
   }
-  .form-section .hint {
-    text-align: center;
-    font-size: 13px;
-    color: #c0392b;
-    margin-bottom: 24px;
+  .form-title .highlight {
+    color: #e74c3c;
   }
-  .field { margin-bottom: 18px; }
+  .form-title p {
+    font-size: 13px;
+    color: #999;
+  }
+  .field { margin-top: 18px; }
   .field label {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     color: #555;
     margin-bottom: 6px;
     font-weight: 500;
@@ -80,7 +146,7 @@
   .field input, .field select, .field textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 1px solid #e0d8cc;
+    border: 1px solid #e8e0d4;
     border-radius: 10px;
     font-size: 15px;
     background: #fafaf7;
@@ -90,7 +156,7 @@
     border-color: #E2763C;
     background: #fff;
   }
-  .field textarea { height: 80px; resize: none; }
+  .field textarea { height: 76px; resize: none; }
   .submit-btn {
     width: 100%;
     padding: 15px;
@@ -101,16 +167,15 @@
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 20px;
   }
-  .submit-btn:active { opacity: 0.9; }
 
-  /* success overlay */
+  /* SUCCESS */
   .success-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.8);
     z-index: 9999;
     justify-content: center;
     align-items: center;
@@ -120,16 +185,15 @@
   .success-box {
     background: #fff;
     border-radius: 20px;
-    padding: 30px 24px;
-    max-width: 360px;
+    padding: 32px 24px;
+    max-width: 340px;
     width: 100%;
     text-align: center;
   }
-  .success-box h3 { font-size: 18px; color: #333; margin-bottom: 6px; }
+  .success-box h3 { font-size: 19px; color: #333; margin-bottom: 6px; }
   .success-box p { font-size: 14px; color: #666; margin-bottom: 16px; }
   .success-box img {
-    width: 220px;
-    height: auto;
+    width: 220px; height: auto;
     border-radius: 12px;
     margin: 0 auto 12px;
     display: block;
@@ -147,88 +211,109 @@
 
   .footer {
     text-align: center;
-    margin-top: 30px;
+    padding: 24px;
     font-size: 13px;
     color: #b0a595;
   }
 </style>
 </head>
 <body>
-  <div class="header">
-    <h1>AI数字人直播案例库</h1>
-    <p>选择行业，查看对应案例</p>
+  <div class="hero">
+    <div class="badge">AI数字人 · 7×24小时直播</div>
+    <h1>数字人直播案例库</h1>
+    <p>6大行业实战案例，扫码查看效果</p>
   </div>
 
   <div class="grid">
-    <a class="card pet" href="./pet/">
-      <div class="icon">🐾</div>
-      <div class="name">宠物行业</div>
-      <div class="sub">点击查看案例</div>
+    <a class="card" href="./pet/" style="--accent:#E2763C">
+      <img src="https://nickchen19941005-dot.github.io/digital-human-cases/pet/pet1_poster.jpg" alt="宠物行业案例" loading="lazy">
+      <div class="card-overlay">
+        <span class="card-emoji">🐾</span>
+        <span class="card-name">宠物行业</span>
+        <span class="card-arrow">查看案例 →</span>
+      </div>
     </a>
-    <a class="card fmcg" href="./fmcg/">
-      <div class="icon">🛒</div>
-      <div class="name">快消行业</div>
-      <div class="sub">点击查看案例</div>
+    <a class="card" href="./fmcg/" style="--accent:#E2763C">
+      <img src="https://nickchen19941005-dot.github.io/digital-human-cases/fmcg/ryynt_poster.jpg" alt="快消行业案例" loading="lazy">
+      <div class="card-overlay">
+        <span class="card-emoji">🛒</span>
+        <span class="card-name">快消行业</span>
+        <span class="card-arrow">查看案例 →</span>
+      </div>
     </a>
-    <a class="card beauty" href="./beauty/">
-      <div class="icon">💄</div>
-      <div class="name">美妆行业</div>
-      <div class="sub">点击查看案例</div>
+    <a class="card" href="./beauty/" style="--accent:#E8608A">
+      <img src="https://nickchen19941005-dot.github.io/digital-human-cases/beauty/joocyee_poster.jpg" alt="美妆行业案例" loading="lazy">
+      <div class="card-overlay">
+        <span class="card-emoji">💄</span>
+        <span class="card-name">美妆行业</span>
+        <span class="card-arrow">查看案例 →</span>
+      </div>
     </a>
-    <a class="card baby" href="./baby/">
-      <div class="icon">🍼</div>
-      <div class="name">母婴行业</div>
-      <div class="sub">点击查看案例</div>
+    <a class="card" href="./baby/" style="--accent:#2FA39C">
+      <img src="https://nickchen19941005-dot.github.io/digital-human-cases/baby/babycare_poster.jpg" alt="母婴行业案例" loading="lazy">
+      <div class="card-overlay">
+        <span class="card-emoji">🍼</span>
+        <span class="card-name">母婴行业</span>
+        <span class="card-arrow">查看案例 →</span>
+      </div>
     </a>
-    <a class="card home" href="./home/">
-      <div class="icon">🏠</div>
-      <div class="name">家居行业</div>
-      <div class="sub">点击查看案例</div>
+    <a class="card" href="./home/" style="--accent:#3E8FA0">
+      <img src="https://nickchen19941005-dot.github.io/digital-human-cases/home/home1_poster.jpg" alt="家居行业案例" loading="lazy">
+      <div class="card-overlay">
+        <span class="card-emoji">🏠</span>
+        <span class="card-name">家居行业</span>
+        <span class="card-arrow">查看案例 →</span>
+      </div>
     </a>
-    <a class="card fashion" href="./fashion/">
-      <div class="icon">👗</div>
-      <div class="name">鞋服行业</div>
-      <div class="sub">点击查看案例</div>
+    <a class="card" href="./fashion/" style="--accent:#9B59B6">
+      <img src="https://nickchen19941005-dot.github.io/digital-human-cases/fashion/jimmy_poster.jpg" alt="鞋服行业案例" loading="lazy">
+      <div class="card-overlay">
+        <span class="card-emoji">👗</span>
+        <span class="card-name">鞋服行业</span>
+        <span class="card-arrow">查看案例 →</span>
+      </div>
     </a>
   </div>
 
-  <!-- 留资表单 -->
   <div class="form-section">
-    <h2>留资可领取免费试播机会</h2>
-    <p class="hint">填写以下信息，商务将尽快联系您</p>
-    <form id="leadForm">
-      <div class="field">
-        <label>公司名称/品牌 <span class="req">*</span></label>
-        <input type="text" id="company" placeholder="请输入公司或品牌名" required>
+    <div class="form-card">
+      <div class="form-title">
+        <h2>留资可领取<span class="highlight">免费试播</span>机会</h2>
+        <p>填写信息，商务1对1沟通方案</p>
       </div>
-      <div class="field">
-        <label>所属行业 <span class="req">*</span></label>
-        <select id="industry" required>
-          <option value="">请选择行业</option>
-          <option value="宠物">宠物</option>
-          <option value="快消">快消</option>
-          <option value="美妆">美妆</option>
-          <option value="母婴">母婴</option>
-          <option value="家居">家居</option>
-          <option value="鞋服">鞋服</option>
-          <option value="其他">其他</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>联系方式 <span class="req">*</span></label>
-        <input type="tel" id="phone" placeholder="请输入手机号" required>
-      </div>
-      <div class="field">
-        <label>想通过数字人解决什么问题（选填）</label>
-        <textarea id="need" placeholder="如：降低直播成本、24小时不间断直播、多平台同时开播等"></textarea>
-      </div>
-      <button type="submit" class="submit-btn">提交，领取免费试播</button>
-    </form>
+      <form id="leadForm">
+        <div class="field">
+          <label>公司名称/品牌 <span class="req">*</span></label>
+          <input type="text" id="company" placeholder="请输入公司或品牌名" required>
+        </div>
+        <div class="field">
+          <label>所属行业 <span class="req">*</span></label>
+          <select id="industry" required>
+            <option value="">请选择行业</option>
+            <option value="宠物">宠物</option>
+            <option value="快消">快消</option>
+            <option value="美妆">美妆</option>
+            <option value="母婴">母婴</option>
+            <option value="家居">家居</option>
+            <option value="鞋服">鞋服</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>联系方式 <span class="req">*</span></label>
+          <input type="tel" id="phone" placeholder="请输入手机号" required>
+        </div>
+        <div class="field">
+          <label>想通过数字人解决什么问题（选填）</label>
+          <textarea id="need" placeholder="如：降低直播成本、24小时不间断直播、多平台同时开播等"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">提交，领取免费试播</button>
+      </form>
+    </div>
   </div>
 
   <div class="footer">kai · 一知智能 | 153 5663 5669</div>
 
-  <!-- 提交成功弹窗 -->
   <div class="success-overlay" id="successOverlay">
     <div class="success-box">
       <h3>提交成功！</h3>
@@ -246,10 +331,7 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
   var industry = document.getElementById('industry').value;
   var phone = document.getElementById('phone').value.trim();
   var need = document.getElementById('need').value.trim() || '未填写';
-
   if(!company || !industry || !phone) return;
-
-  // 推送到飞书
   var text = "📋 新客资提交\n" +
     "🏢 公司/品牌：" + company + "\n" +
     "🏭 行业：" + industry + "\n" +
@@ -261,8 +343,6 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify({msg_type:"text", content:{text:text}}));
   } catch(e) {}
-
-  // 显示成功弹窗
   document.getElementById('successOverlay').classList.add('show');
 });
 </script>
