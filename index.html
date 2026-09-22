@@ -331,19 +331,21 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
   var industry = document.getElementById('industry').value;
   var phone = document.getElementById('phone').value.trim();
   var need = document.getElementById('need').value.trim() || '未填写';
-  if(!company || !industry || !phone) return;
+  if(!company || !industry || !phone) { alert('请填写完整必填信息'); return; }
+  // 先弹二维码弹窗
+  var ov = document.getElementById('successOverlay');
+  ov.style.display = 'flex';
+  // 再推送飞书
   var text = "📋 新客资提交\n" +
     "🏢 公司/品牌：" + company + "\n" +
     "🏭 行业：" + industry + "\n" +
     "📞 联系方式：" + phone + "\n" +
     "💡 需求：" + need;
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://open.feishu.cn/open-apis/bot/v2/hook/663a079a-bce6-4f47-8856-0cdf64f02d4c", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify({msg_type:"text", content:{text:text}}));
-  } catch(e) {}
-  document.getElementById('successOverlay').classList.add('show');
+  fetch("https://open.feishu.cn/open-apis/bot/v2/hook/663a079a-bce6-4f47-8856-0cdf64f02d4c", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({msg_type:"text", content:{text:text}})
+  }).catch(function(){});
 });
 </script>
 </body>
