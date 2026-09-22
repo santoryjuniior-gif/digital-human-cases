@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI数字人直播案例库</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    background: #f5f0e8;
+    min-height: 100vh;
+    padding: 40px 20px 100px;
+  }
+  .header { text-align:center; margin-bottom: 36px; }
+  .header h1 { font-size: 28px; color: #3c2d1e; margin-bottom: 8px; }
+  .header p { font-size: 14px; color: #998; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+  }
+  .card.pet::before { background: #E2763C; }
+  .card.fmcg::before { background: #E2763C; }
+  .card.beauty::before { background: #E8608A; }
+  .card.baby::before { background: #2FA39C; }
+  .card.home::before { background: #3E8FA0; }
+  .card.fashion::before { background: #9B59B6; }
+  .card .icon { font-size: 36px; margin-bottom: 8px; }
+  .card .name { font-size: 17px; font-weight: 600; }
+  .card .sub { font-size: 12px; color: #999; margin-top: 4px; }
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    color: #b0a595;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>AI数字人直播案例库</h1>
+    <p>选择行业，查看对应案例</p>
+  </div>
+  <div class="grid">
+    <a class="card pet" href="./pet/">
+      <div class="icon">🐾</div>
+      <div class="name">宠物行业</div>
+      <div class="sub">点击查看案例</div>
+    </a>
+    <a class="card fmcg" href="./fmcg/">
+      <div class="icon">🛒</div>
+      <div class="name">快消行业</div>
+      <div class="sub">点击查看案例</div>
+    </a>
+    <a class="card beauty" href="./beauty/">
+      <div class="icon">💄</div>
+      <div class="name">美妆行业</div>
+      <div class="sub">点击查看案例</div>
+    </a>
+    <a class="card baby" href="./baby/">
+      <div class="icon">🍼</div>
+      <div class="name">母婴行业</div>
+      <div class="sub">点击查看案例</div>
+    </a>
+    <a class="card home" href="./home/">
+      <div class="icon">🏠</div>
+      <div class="name">家居行业</div>
+      <div class="sub">点击查看案例</div>
+    </a>
+    <a class="card fashion" href="./fashion/">
+      <div class="icon">👗</div>
+      <div class="name">鞋服行业</div>
+      <div class="sub">点击查看案例</div>
+    </a>
+  </div>
+  <div class="footer">kai · 一知智能 | 153 5663 5669</div>
+</body>
+</html>
