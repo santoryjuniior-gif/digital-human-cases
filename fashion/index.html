@@ -382,5 +382,18 @@ function showQR(){
   document.getElementById('qrPopup').style.display='flex';
 }
 </script>
-</body>
+<script>
+(function(){
+  var path=location.pathname;
+  var ref=document.referrer||"直接扫码";
+  var d=new Date();
+  var t=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+" "+d.getHours()+":"+d.getMinutes();
+  var text="👀 访客访问\n页面："+path+"\n时间："+t+"\n来源："+ref;
+  fetch("https://open.feishu.cn/open-apis/bot/v2/hook/663a079a-bce6-4f47-8856-0cdf64f02d4c",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({msg_type:"text",content:{text:text}})
+  }).catch(function(){});
+})();
+</script></body>
 </html>
