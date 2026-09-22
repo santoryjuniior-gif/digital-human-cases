@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>美妆直播案例 · 扫码观看</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;900&display=swap">
+<style>
+  :root {
+    --paper: #F6F1E9;
+    --ink: #241C15;
+    --muted: #8A7F70;
+    --line: #E6DCCE;
+    --card: #FFFFFF;
+    --accent: #E2608A;
+    --accent2: #AC8838;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 0 16px 48px; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">AI 美妆直播案例</span>
+    <h1>直播案例精选</h1>
+    <p class="sub">酵色 / 资生堂 / 海蓝之谜直播间实录，点击播放即可观看。</p>
+  </header>
+
+  <section class="case is-first">
+    <div class="stage">
+      <video class="is-first" controls playsinline preload="metadata" poster="https://nickchen19941005-dot.github.io/digital-human-cases/beauty/joocyee_poster.jpg"
+             src="https://nickchen19941005-dot.github.io/digital-human-cases/beauty/joocyee.mp4"></video>
+      <button class="play" type="button" aria-label="播放案例视频">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .81.88 1.31 1.57.89l10.8-6.86a1.05 1.05 0 0 0 0-1.78L9.57 4.25A1.04 1.04 0 0 0 8 5.14Z"/></svg>
+      </button>
+    </div>
+    <div class="info">
+      <div class="info-top">
+        <div class="brand"><span class="dot"></span><h2>JOOCYEE 酵色</h2></div>
+        <span class="duration">00:37</span>
+      </div>
+      <p class="desc">美妆直播带货实录 · 冰美式妆前喷雾、固体唇蜜等爆品讲解。</p>
+      <div class="tags"><span class="tag">美妆直播</span><span class="tag">带货讲解</span></div>
+    </div>
+  </section>
+
+  <section class="case is-second">
+    <div class="stage">
+      <video class="is-second" controls playsinline preload="metadata" poster="https://nickchen19941005-dot.github.io/digital-human-cases/beauty/shiseido_poster.jpg"
+             src="https://nickchen19941005-dot.github.io/digital-human-cases/beauty/shiseido.mp4"></video>
+      <button class="play" type="button" aria-label="播放案例视频">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .81.88 1.31 1.57.89l10.8-6.86a1.05 1.05 0 0 0 0-1.78L9.57 4.25A1.04 1.04 0 0 0 8 5.14Z"/></svg>
+      </button>
+    </div>
+    <div class="info">
+      <div class="info-top">
+        <div class="brand"><span class="dot"></span><h2>SHISEIDO 资生堂</h2></div>
+        <span class="duration">00:30</span>
+      </div>
+      <p class="desc">抗老护肤直播实录 · 专利胶原酮与胶原抗老爆品讲解。</p>
+      <div class="tags"><span class="tag">护肤直播</span><span class="tag">抗老讲解</span></div>
+    </div>
+  </section>
+
+  <section class="case is-third">
+    <div class="stage">
+      <video class="is-third" controls playsinline preload="metadata" poster="https://nickchen19941005-dot.github.io/digital-human-cases/beauty/lamer_poster.jpg"
+             src="https://nickchen19941005-dot.github.io/digital-human-cases/beauty/lamer.mp4"></video>
+      <button class="play" type="button" aria-label="播放案例视频">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .81.88 1.31 1.57.89l10.8-6.86a1.05 1.05 0 0 0 0-1.78L9.57 4.25A1.04 1.04 0 0 0 8 5.14Z"/></svg>
+      </button>
+    </div>
+    <div class="info">
+      <div class="info-top">
+        <div class="brand"><span class="dot"></span><h2>LA MER 海蓝之谜</h2></div>
+        <span class="duration">00:28</span>
+      </div>
+      <p class="desc">高奢护肤直播实录 · 双12愈肤大师课礼盒与赠品讲解。</p>
+      <div class="tags"><span class="tag">高奢直播</span><span class="tag">礼盒讲解</span></div>
+    </div>
+  </section>
+
+  <footer>AI 美妆直播案例展示 · 建议使用手机全屏观看</footer>
+</div>
+
+<script>
+  (function () {
+    var stages = document.querySelectorAll('.stage');
+    Array.prototype.forEach.call(stages, function (stage) {
+      var video = stage.querySelector('video');
+      var play = stage.querySelector('.play');
+      play.addEventListener('click', function () {
+        var p = video.play();
+        if (p && p.catch) { p.catch(function () {}); }
+      });
+      video.addEventListener('play', function () { play.classList.add('hidden'); });
+      video.addEventListener('pause', function () { play.classList.remove('hidden'); });
+      video.addEventListener('ended', function () { play.classList.remove('hidden'); });
+    });
+  })();
+</script>
+</body>
+</html>
