@@ -216,30 +216,6 @@ function copyShop(name){
   }).catch(function(){});
 })();
 </script>
-<script>
-// 禁用右键
-document.addEventListener('contextmenu', e => e.preventDefault());
-// 禁用长按保存（移动端）
-document.addEventListener('long-press', e => e.preventDefault());
-// 禁用文本选择
-document.addEventListener('selectstart', e => e.preventDefault());
-// 禁用键盘快捷键
-document.addEventListener('keydown', e => {
-  if (e.key === 'F12' || 
-      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
-      (e.ctrlKey && ['U','S'].includes(e.key))) {
-    e.preventDefault();
-  }
-});
-// 禁止拖拽
-document.addEventListener('dragstart', e => e.preventDefault());
-// 禁止长按弹出菜单（移动端）
-document.addEventListener('touchstart', e => {
-  if (e.target.tagName === 'VIDEO' || e.target.tagName === 'IMG') {
-    e.preventDefault();
-  }
-}, {passive: false});
-</script>
 
 </body>
 </html>
