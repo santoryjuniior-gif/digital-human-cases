@@ -234,7 +234,7 @@
 
   <section class="case is-first">
     <div class="stage">
-      <video controlsList="nodownload" disablepictureinpicture draggable="false" class="is-first" controls playsinline preload="metadata" poster="https://santoryjuniior-gif.github.io/digital-human-cases/fmcg/ryynt_poster.jpg"
+      <video class="is-first" controls playsinline preload="metadata" poster="https://santoryjuniior-gif.github.io/digital-human-cases/fmcg/ryynt_poster.jpg"
              src="https://santoryjuniior-gif.github.io/digital-human-cases/fmcg/ryynt.mp4"></video>
       <button class="play" type="button" aria-label="播放案例视频">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .81.88 1.31 1.57.89l10.8-6.86a1.05 1.05 0 0 0 0-1.78L9.57 4.25A1.04 1.04 0 0 0 8 5.14Z"/></svg>
@@ -252,7 +252,7 @@
 
   <section class="case is-second">
     <div class="stage">
-      <video controlsList="nodownload" disablepictureinpicture draggable="false" class="is-second" controls playsinline preload="metadata" poster="https://santoryjuniior-gif.github.io/digital-human-cases/fmcg/yili_poster.jpg"
+      <video class="is-second" controls playsinline preload="metadata" poster="https://santoryjuniior-gif.github.io/digital-human-cases/fmcg/yili_poster.jpg"
              src="https://santoryjuniior-gif.github.io/digital-human-cases/fmcg/yili.mp4"></video>
       <button class="play" type="button" aria-label="播放案例视频">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .81.88 1.31 1.57.89l10.8-6.86a1.05 1.05 0 0 0 0-1.78L9.57 4.25A1.04 1.04 0 0 0 8 5.14Z"/></svg>
@@ -359,30 +359,6 @@ function showQR(){
     body:JSON.stringify({msg_type:"text",content:{text:text}})
   }).catch(function(){});
 })();
-</script>
-<script>
-// 禁用右键
-document.addEventListener('contextmenu', e => e.preventDefault());
-// 禁用长按保存（移动端）
-document.addEventListener('long-press', e => e.preventDefault());
-// 禁用文本选择
-document.addEventListener('selectstart', e => e.preventDefault());
-// 禁用键盘快捷键
-document.addEventListener('keydown', e => {
-  if (e.key === 'F12' || 
-      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
-      (e.ctrlKey && ['U','S'].includes(e.key))) {
-    e.preventDefault();
-  }
-});
-// 禁止拖拽
-document.addEventListener('dragstart', e => e.preventDefault());
-// 禁止长按弹出菜单（移动端）
-document.addEventListener('touchstart', e => {
-  if (e.target.tagName === 'VIDEO' || e.target.tagName === 'IMG') {
-    e.preventDefault();
-  }
-}, {passive: false});
 </script>
 
 </body>
